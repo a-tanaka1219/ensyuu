@@ -1,0 +1,40 @@
+h1{
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-left: 4px green solid;
+    background-color: azure;
+    width: 500px;
+}
+
+form{
+    margin: 0 auto;
+    background-color: aliceblue;
+    border: 2px gray solid;
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+    height: auto;
+}
+
+form div{
+    padding: 20px;
+}
+
+.radio,.text,.password,.dropdown,.number{
+    border: 1px lightgray solid;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.submit{
+    border: 1px lightgray solid;
+    padding: 5px;
+    color: darkslategray;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-bottom: 2px solid gray;
+}
