@@ -68,7 +68,7 @@ var_dump($_POST);
                               {
                                   echo $_POST['family_name'];
                               }
-                              ?>">
+                              ?>" name="family_name">
             </form>
             
             <form action="regist_complete.php" method="post">
