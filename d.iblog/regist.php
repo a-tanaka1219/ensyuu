@@ -29,19 +29,43 @@ var_dump($_POST);
             </div>
             <div>
                 <label>名前（名）</label>
-                <input type="text" class="error" size="35" name="last_name">
+                <input type="text" class="error" size="35" name="last_name"
+                       value="<?php
+                              if(!empty($_POST['last_name']))
+                              {
+                                  echo $_POST['last_name'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>カナ（姓）</label>
-                <input type="text" class="text" size="35" maxlength="10" name="family_name_kana">
+                <input type="text" class="text" size="35" maxlength="10" name="family_name_kana"
+                       value="<?php
+                              if(!empty($_POST['family_name_kana']))
+                              {
+                                  echo $_POST['family_name_kana'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>カナ（名）</label>
-                <input type="text" class="text" size="35"  maxlength="10" name="last_name_kana">
+                <input type="text" class="text" size="35"  maxlength="10" name="last_name_kana"
+                       value="<?php
+                              if(!empty($_POST['last_name_kana']))
+                              {
+                                  echo $_POST['last_name_kana'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>メールアドレス</label>
-                <input type="email" size="35" maxlength="100" name="mail">
+                <input type="email" size="35" maxlength="100" name="mail"
+                       value="<?php
+                              if(!empty($_POST['mail']))
+                              {
+                                  echo $_POST['mail'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>パスワード</label>
@@ -56,12 +80,24 @@ var_dump($_POST);
             
             <div>
                 <label>郵便番号</label>
-                <input type="number" class="text" size="10" maxlength="7" name="post_code">
+                <input type="number" class="text" size="10" maxlength="7" name="post_code"
+                       value="<?php
+                              if(!empty($_POST['post_code']))
+                              {
+                                  echo $_POST['post_code'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>住所（都道府県）</label>
                 <select name="prefecture">
-                    <option value="">都道府県</option>
+                    <option value="<?php
+                                   if(!empty($_POST['prefecture']))
+                                   {
+                                       echo $_POST['prefecture'];
+                                   }
+                                   ?>">
+                        都道府県</option>
                     <option value="北海道">北海道</option>
                     <option value="青森県">青森県</option>
                     <option value="岩手県">岩手県</option>
@@ -113,11 +149,23 @@ var_dump($_POST);
             </div>
             <div>
                 <label>住所（市区町村）</label>
-                <input type="text" class="text" size="35" maxlength="10" name="address_1">
+                <input type="text" class="text" size="35" maxlength="10" name="address_1"
+                       value="<?php
+                              if(!empty($_POST['address_1']))
+                              {
+                                  echo $_POST['address_1'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>住所（番地）</label>
-                <input type="text" class="text" size="35" maxlength="100" name="address_2">
+                <input type="text" class="text" size="35" maxlength="100" name="address_2"
+                       value="<?php
+                              if(!empty($_POST['address_2']))
+                              {
+                                  echo $_POST['address_2'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>アカウント権限</label>
