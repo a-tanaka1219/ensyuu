@@ -99,6 +99,15 @@ var_dump($_POST);
                               ?>" name="mail">
                 <input type="hidden"
                        value="<?php
+                              if($_POST['gender']=="男性")
+                              {
+                                  echo $_POST['gender'];
+                              }else{
+                                  echo $_POST['gender'];
+                              }
+                              ?>" name="gender">
+                <input type="hidden"
+                       value="<?php
                               if(!empty($_POST['post_code']))
                               {
                                   echo $_POST['post_code'];
@@ -106,7 +115,7 @@ var_dump($_POST);
                               ?>" name="post_code">
                 <input type="hidden"
                        value="<?php
-                              if(!empty($_POST['prefecture']))
+                              if(isset($_POST['prefecture']))
                               {
                                   echo $_POST['prefecture'];
                               }

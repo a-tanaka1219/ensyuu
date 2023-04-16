@@ -90,13 +90,14 @@ var_dump($_POST);
             </div>
             <div>
                 <label>住所（都道府県）</label>
-                <select name="prefecture">
-                    <option value="<?php
-                                   if(!empty($_POST['prefecture']))
-                                   {
-                                       echo $_POST['prefecture'];
-                                   }
-                                   ?>">
+                <select name="prefecture"
+                        value="<?php
+                               if(isset($_POST['prefecture']))
+                               {
+                                   echo $_POST['prefecture'];
+                               }
+                                ?>">
+                    <option value="">
                         都道府県</option>
                     <option value="北海道">北海道</option>
                     <option value="青森県">青森県</option>
