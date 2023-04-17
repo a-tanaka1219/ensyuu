@@ -97,15 +97,7 @@ var_dump($_POST);
                                   echo $_POST['mail'];
                               }
                               ?>" name="mail">
-                <input type="hidden"
-                       value="<?php
-                              if($_POST['gender']=="男性")
-                              {
-                                  echo $_POST['gender'];
-                              }else{
-                                  echo $_POST['gender'];
-                              }
-                              ?>" name="gender">
+                <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
                 <input type="hidden"
                        value="<?php
                               if(!empty($_POST['post_code']))

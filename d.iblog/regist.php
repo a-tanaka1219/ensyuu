@@ -73,8 +73,20 @@ var_dump($_POST);
             </div>
             <div>
                 <label>性別</label>
-                <input type="radio" name="gender" value="0">男性
-                <input type="radio" name="gender" value="1">女性
+                <input type="radio" name="gender" value="0"
+                       <?php
+                       if($_POST['gender']="0")
+                       {
+                           echo 'checked';
+                       }
+                           ?> checked>男性
+                <input type="radio" name="gender" value="1"
+                       <?php
+                           if($_POST['gender']="1")
+                           {
+                               echo 'checked';
+                           }
+                               ?>>女性
             </div>
                 
             
