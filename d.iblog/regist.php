@@ -75,18 +75,20 @@ var_dump($_POST);
                 <label>性別</label>
                 <input type="radio" name="gender" value="0"
                        <?php
-                       if($_POST['gender']="0")
-                       {
-                           echo 'checked';
-                       }
-                           ?> checked>男性
-                <input type="radio" name="gender" value="1"
-                       <?php
-                           if($_POST['gender']="1")
+                       //POST[gender]がセットされていない時もしくわPOST[gender]が０の時男性にチェックを入れる
+                       if(!isset($_POST['gender']) || $_POST['gender']=="0")
                            {
                                echo 'checked';
                            }
-                               ?>>女性
+                       ?>>男性
+                <input type="radio" name="gender" value="1"
+                       //$POST[gender]に変数が代入されているかつ数値が１の時女性にチェックを入れる
+                       <?php
+                       if(isset($_POST['gender']) && $_POST['gender']=="1")
+                          {
+                               echo 'checked';
+                          }
+                       ?>>女性
             </div>
                 
             
