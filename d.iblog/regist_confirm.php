@@ -105,14 +105,7 @@ var_dump($_POST);
                                   echo $_POST['post_code'];
                               }
                               ?>" name="post_code">
-                <input type="hidden"
-                       value="<?php
-                              if(isset($_POST['prefecture']))
-                              {
-                                  echo $_POST['prefecture'];
-                              }
-                              ?>" name="prefecture">
-                                                 
+                <input type="hidden"value="<?php echo $_POST['prefecture']; ?>" name="prefecture">                                
                 <input type="hidden"
                        value="<?php
                               if(!empty($_POST["address_1"]))
@@ -127,7 +120,7 @@ var_dump($_POST);
                                   echo $_POST['address_2'];
                               }
                               ?>" name="address_2">
-                
+                <input type="hidden" value="<?php echo $_POST['authorrity']; ?>" name="authorrity">                
             </form>
             
             <form action="regist_complete.php" method="post">
