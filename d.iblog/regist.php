@@ -9,6 +9,7 @@ var_dump($_POST);
         <link rel="stylesheet" type="text/css" href="regist1.css">
         
         
+        
     </hrad>
     
     <body>
@@ -21,11 +22,18 @@ var_dump($_POST);
                 <label>名前（姓）</label>
                 <input type="text" class="error" size="35" maxlength="10" name="family_name"
                        value="<?php
+                              //もし名前（姓）が入力されている場合、$_POSTで送られてきた値を表示
                               if(!empty($_POST['family_name']))
                               {
                                   echo $_POST['family_name'];
                               }
                               ?>">
+                <?php
+                if(isset($_POST['family_name']) && empty($_POST['family_name'])){
+                    echo "<p style='color: red;'>名前を入力してください。</p>";
+                }
+                ?>
+                
             </div>
             <div>
                 <label>名前（名）</label>
