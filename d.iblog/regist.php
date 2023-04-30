@@ -30,7 +30,7 @@ var_dump($_POST);
                               ?>">
                 <?php
                 if(isset($_POST['family_name']) && empty($_POST['family_name'])){
-                    echo "<p style='color: red;'>名前を入力してください。</p>";
+                    echo "<p style='color: red;'>名前（姓）を入力してください。</p>";
                 }
                 ?>
                 
@@ -44,6 +44,14 @@ var_dump($_POST);
                                   echo $_POST['last_name'];
                               }
                               ?>">
+                <?php
+                $error=array();
+                if(isset($_POST['last_name']){
+                    $last_name = $_POST['last_name'];
+                    if($lastname==""){
+                    $error= "style='color: red;'>名前（名）を入力してください。";
+                }}
+                ?>
             </div>
             <div>
                 <label>カナ（姓）</label>
