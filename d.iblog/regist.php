@@ -20,24 +20,22 @@ var_dump($_POST);
             </div>
             <div>
                 <label>名前（姓）</label>
-                <input type="text" class="error" size="35" maxlength="10" name="family_name"
+                <input type="text" class="error" size="35" maxlength="10" name="family_name" 
+                       //必須入力設定
+                       required title="名前（姓）を入力してください。" 
+                       //文字種の設定
+                       pattern="[^\x20-\x7E]*.[^\u30A1-\u30F6]*"
                        value="<?php
-                              //もし名前（姓）が入力されている場合、$_POSTで送られてきた値を表示
+                              //もし名前（姓）が入力されている場合、$_POSTで送られてきた値を表示(入力値の保持)
                               if(!empty($_POST['family_name']))
                               {
                                   echo $_POST['family_name'];
                               }
-                              ?>">
-                <?php
-                if(isset($_POST['family_name']) && empty($_POST['family_name'])){
-                    echo "<p style='color: red;'>名前（姓）を入力してください。</p>";
-                }
-                ?>
-                
+                              ?>"> 
             </div>
             <div>
                 <label>名前（名）</label>
-                <input type="text" class="error" size="35" name="last_name"
+                <input type="text" class="last_name" size="35" name="last_name"
                        value="<?php
                               if(!empty($_POST['last_name']))
                               {
@@ -45,13 +43,11 @@ var_dump($_POST);
                               }
                               ?>">
                 <?php
-                $error=array();
-                if(isset($_POST['last_name']){
-                    $last_name = $_POST['last_name'];
-                    if($lastname==""){
-                    $error= "style='color: red;'>名前（名）を入力してください。";
-                }}
+                if(isset($_POST['last_name']) && empty($_POST['last_name'])){
+                    echo "<p style='color: red;'>名前（名）を入力してください。</p>";
+                }
                 ?>
+                
             </div>
             <div>
                 <label>カナ（姓）</label>
@@ -110,7 +106,7 @@ var_dump($_POST);
             
             <div>
                 <label>郵便番号</label>
-                <input type="number" class="text" size="10" maxlength="7" name="post_code"
+                <input type="number" class="text" size="10" pattem name="post_code"
                        value="<?php
                               if(!empty($_POST['post_code']))
                               {

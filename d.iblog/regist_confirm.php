@@ -27,7 +27,15 @@ var_dump($_POST);
                 
             </p>
             <p>名前（名）：
-                <?php echo $_POST['last_name']; ?>
+                <?php
+                if(isset($_POST["last_name"])){
+                    hender('Location:regist.php');
+                    exit();
+                }
+                else{
+                    echo $_POST["last_name"];
+                }
+                ?>
             </p>
             <p>カナ（姓）：
                 <?php echo $_POST['family_name_kana']; ?>
