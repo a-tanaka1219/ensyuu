@@ -20,11 +20,7 @@ var_dump($_POST);
             </div>
             <div>
                 <label>名前（姓）</label>
-                <input type="text" class="error" size="35" maxlength="10" name="family_name" 
-                       //必須入力設定
-                       required title="名前（姓）を入力してください。" 
-                       //文字種の設定
-                       pattern="[^\x20-\x7E]*.[^\u30A1-\u30F6]*"
+                <input type="text" class="error" size="35" name="family_name" 
                        value="<?php
                               //もし名前（姓）が入力されている場合、$_POSTで送られてきた値を表示(入力値の保持)
                               if(!empty($_POST['family_name']))

@@ -17,8 +17,8 @@ var_dump($_POST);
             </p>
             <p>名前（姓）:
                 <?php
-                if (empty($_POST["family_name"])) {
-                    echo "この項目は入力必須です";
+                if(empty($_POST["family_name"])){
+                    echo "<p style='color: red;'>この項目は入力必須です</p>";
                     }
                 else{
                     echo $_POST["family_name"];
@@ -27,15 +27,7 @@ var_dump($_POST);
                 
             </p>
             <p>名前（名）：
-                <?php
-                if(isset($_POST["last_name"])){
-                    hender('Location:regist.php');
-                    exit();
-                }
-                else{
-                    echo $_POST["last_name"];
-                }
-                ?>
+                <?php　echo $_POST['last_name']; ?>
             </p>
             <p>カナ（姓）：
                 <?php echo $_POST['family_name_kana']; ?>
@@ -132,7 +124,7 @@ var_dump($_POST);
             </form>
             
             <form action="regist_complete.php" method="post">
-                <input type="submit" class="buttot2" value="登録">
+                <input type="submit" class="buttot2" value="登録" disabled>
                 <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                 <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
                 <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
