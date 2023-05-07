@@ -90,8 +90,8 @@ var_dump($_POST);
                            }
                        ?>>男性
                 <input type="radio" name="gender" value="1"
-                       //$POST[gender]に変数が代入されているかつ数値が１の時女性にチェックを入れる
                        <?php
+                        //$POST[gender]に変数が代入されているかつ数値が１の時女性にチェックを入れる
                        if(isset($_POST['gender']) && $_POST['gender']=="1")
                           {
                                echo 'checked';
@@ -486,7 +486,7 @@ var_dump($_POST);
                 </select>    
             </div>
             <div>
-                <input type="submit" class="submit" value="確認する"　onclick="return check();">
+                <input type="submit" class="submit" value="確認する" onclick="return check();" disabled>
             </div>
         </form>
     </body>
