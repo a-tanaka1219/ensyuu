@@ -31,7 +31,7 @@ var_dump($_POST);
             </div>
             <div>
                 <label>名前（名）</label>
-                <input type="text" class="last_name" size="35" name="last_name"
+                <input type="text" class="last_name" size="35" name="last_name" id="error"
                        value="<?php
                               if(!empty($_POST['last_name']))
                               {
@@ -478,15 +478,29 @@ var_dump($_POST);
                             ?>>一般</option>
                     <option value="02"
                             <?php
+                            $error=false;                          
                             if(isset($_POST['authorrity']) && $_POST['authorrity']=="02")
                             {
+                                //この中がエラーだった時
+                                $error=true;
                                 echo 'selected';
                             }
                             ?>>管理者</option>
                 </select>    
             </div>
             <div>
-                <input type="submit" class="submit" value="確認する" onclick="return check();" disabled>
+                <input type="submit" class="submit" value="確認する" 
+                       <?php
+                       $error=true;
+                       if ($error==true){
+                           echo ' disabled';
+                       }else{
+                           echo ' onclick="return check();"';
+                       }
+                       ?>>
+            </div>
+            <div>
+                <input type="submit" value="確認してみましょう" onclick="return check();" disabled>
             </div>
         </form>
     </body>
