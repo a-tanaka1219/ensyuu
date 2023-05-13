@@ -1,5 +1,9 @@
 <?php
 var_dump($_POST);
+
+
+$error=false;//最初はエラーじゃない false を代入する
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +22,7 @@ var_dump($_POST);
             <p>名前（姓）:
                 <?php
                 if(empty($_POST["family_name"])){
+                    $error=true;
                     echo "<p style='color: red;'>この項目は入力必須です</p>";
                     }
                 else{
@@ -27,7 +32,15 @@ var_dump($_POST);
                 
             </p>
             <p>名前（名）：
-                <?php　echo $_POST['last_name']; ?>
+                <?php
+                if(empty($_POST["last_name"])){
+                    $error=true;
+                    echo "<p style='color: red;'>名前（名）が未入力です</p>";
+                }
+                else{
+                    echo $_POST['last_name'];
+                }
+                ?>
             </p>
             <p>カナ（姓）：
                 <?php echo $_POST['family_name_kana']; ?>
@@ -123,8 +136,18 @@ var_dump($_POST);
                 <input type="hidden" value="<?php echo $_POST['authorrity']; ?>" name="authorrity">                
             </form>
             
+                <?php
+                       var_dump($error);
+                ?>
+            
             <form action="regist_complete.php" method="post">
-                <input type="submit" class="buttot2" value="登録" disabled>
+                <input type="submit" class="buttot2" value="登録"
+                <?php
+                       if ($error==true){
+                           //エラーだった時押せなくする
+                           echo ' disabled';
+                       }
+                ?>>
                 <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                 <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
                 <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">

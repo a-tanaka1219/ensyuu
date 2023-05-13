@@ -489,15 +489,7 @@ var_dump($_POST);
                 </select>    
             </div>
             <div>
-                <input type="submit" class="submit" value="確認する" 
-                       <?php
-                       $error=true;
-                       if ($error==true){
-                           echo ' disabled';
-                       }else{
-                           echo ' onclick="return check();"';
-                       }
-                       ?>>
+                <input type="submit" class="submit" value="確認する"> 
             </div>
             <div>
                 <input type="submit" value="確認してみましょう" onclick="return check();" disabled>
