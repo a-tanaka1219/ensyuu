@@ -23,7 +23,7 @@ $error=false;//最初はエラーじゃない false を代入する
                 <?php
                 if(empty($_POST["family_name"])){
                     $error=true;
-                    echo "<p style='color: red;'>この項目は入力必須です</p>";
+                    echo "<p style='color: red;'>名前（姓）を入力してください</p>";
                     }
                 else{
                     echo $_POST["family_name"];
@@ -35,7 +35,7 @@ $error=false;//最初はエラーじゃない false を代入する
                 <?php
                 if(empty($_POST["last_name"])){
                     $error=true;
-                    echo "<p style='color: red;'>名前（名）が未入力です</p>";
+                    echo "<p style='color: red;'>名前（名）を入力してください</p>";
                 }
                 else{
                     echo $_POST['last_name'];
@@ -43,34 +43,115 @@ $error=false;//最初はエラーじゃない false を代入する
                 ?>
             </p>
             <p>カナ（姓）：
-                <?php echo $_POST['family_name_kana']; ?>
+                <?php
+                if(empty($_POST["family_name_kana"])){
+                    $error=true;
+                    echo "<p style='color: red;'>カナ（姓）を入力してください";
+                }
+                else{
+                    echo $_POST['family_name_kana'];
+                }
+                ?>
+                
             </p>
             <p>カナ（名）：
-                <?php echo $_POST['last_name_kana']; ?>
+                <?php
+                if(empty($_POST["last_name_kana"])){
+                    $error=true;
+                    echo "<p style='color: red;'>カナ（名）を入力してください";
+                }
+                else{
+                    echo $_POST['last_name_kana'];
+                }
+                ?>
             </p>
             <p>メールアドレス：
-                <?php echo $_POST['mail']; ?>
+                <?php
+                if(empty($_POST["mail"])){
+                    $error=true;
+                    echo "<p style='color: red;'>メールアドレスを入力してください";
+                }
+                else{
+                    echo $_POST['mail'];
+                }
+                ?>
             </p>
             <p>パスワード：
-                <?php echo $_POST['password']; ?>
+                <?php
+                if(empty($_POST["password"])){
+                    $error=true;
+                    echo "<p style='color: red;'>パスワードを入力してください";
+                }
+                else{
+                    echo $_POST['password'];
+                }
+                ?>
             </p>
             <p>性別：
-                <?php echo $_POST['gender']; ?>
+                <?php
+                if(isset($_POST["gender"]){
+                    $error=false;
+                    echo "<p style='color: red;'>性別を選択してください";
+                }
+                else{
+                    echo $_POST['gender'];
+                }
+                ?>
             </p>
             <p>郵便番号：
-                <?php echo $_POST['post_code']; ?>
+                <?php
+                if(empty($_POST["post_code"])){
+                    $error=true;
+                    echo "<p style='color: red;'>郵便番号を入力してください";
+                }
+                else{
+                    echo $_POST['post_code'];
+                }
+                ?>
             </p>
             <p>住所（都道府県）：
-                <?php echo $_POST['prefecture']; ?>
+                <?php
+                if(empty($_POST["prefecture"])){
+                    $error=true;
+                    echo "<p style='color:red;'>住所（都道府県）を選択してください";
+                }
+                else{
+                    echo $_POST['prefecture'];
+                }
+                ?>
             </p>
             <p>住所（市区町村）：
-                <?php echo $_POST['address_1']; ?>
+                <?php
+                if(empty($_POST["address_1"])){
+                    $error=true;
+                    echo "<p style='color: red;'>住所（市区町村）を入力してください";
+                }
+                else{
+                    echo $_POST['address_1'];
+                }
+                ?>
             </p>
             <p>住所（番地）：
-                <?php echo $_POST['address_2']; ?>
+                <?php
+                if(empty($_POST["address_2"])){
+                    $error=true;
+                    echo "<p style='color: red;'>住所（番地）を入力してください";
+                }
+                else{
+                    echo $_POST['address_2'];
+                }
+                ?>
             </p>
             <p>アカウント権限：
-                <?php echo $_POST['authorrity']; ?>
+                <?php
+                if(empty($_POST["authority"])){
+                    $error=true;
+                    echo "<p style='color: red;'>アカウント権限を選択してください";
+                }
+                else{
+                    echo $_POST['authority'];
+                }
+                ?>
             </p>
             
             <form action="regist.php" method="post">
@@ -133,7 +214,7 @@ $error=false;//最初はエラーじゃない false を代入する
                                   echo $_POST['address_2'];
                               }
                               ?>" name="address_2">
-                <input type="hidden" value="<?php echo $_POST['authorrity']; ?>" name="authorrity">                
+                <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">                
             </form>
             
                 <?php
@@ -159,7 +240,7 @@ $error=false;//最初はエラーじゃない false を代入する
                 <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
                 <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
                 <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
-                <input type="hidden" value="<?php echo $_POST['authorrity']; ?>" name="authorrity">
+                <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
                        
             </form>
         </div>

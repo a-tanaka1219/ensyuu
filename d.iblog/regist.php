@@ -468,21 +468,18 @@ var_dump($_POST);
             </div>
             <div>
                 <label>アカウント権限</label>
-                <select name="authorrity">
-                    <option value="01"
+                <select name="authority">
+                    <option value="0"
                             <?php
-                            if(isset($_POST['authorrity']) && $_POST['authorrity']=="01")
+                            if(!isset($_POST['authority']) || $_POST['authority']=="0")
                             {
                                 echo 'selected';
                             }
                             ?>>一般</option>
-                    <option value="02"
-                            <?php
-                            $error=false;                          
-                            if(isset($_POST['authorrity']) && $_POST['authorrity']=="02")
+                    <option value="1"
+                            <?php                        
+                            if(isset($_POST['authority']) && $_POST['authority']=="1")
                             {
-                                //この中がエラーだった時
-                                $error=true;
                                 echo 'selected';
                             }
                             ?>>管理者</option>
