@@ -67,7 +67,7 @@ var_dump($_POST);
             </div>
             <div>
                 <label>メールアドレス</label>
-                <input type="email" size="35" maxlength="100" name="mail"
+                <input type="email" size="35" maxlength="100" name="mail" pattern=""
                        value="<?php
                               if(!empty($_POST['mail']))
                               {
@@ -102,7 +102,7 @@ var_dump($_POST);
             
             <div>
                 <label>郵便番号</label>
-                <input type="number" class="text" size="10" pattem name="post_code"
+                <input type="text" class="text" size="10" name="post_code" 
                        value="<?php
                               if(!empty($_POST['post_code']))
                               {

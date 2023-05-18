@@ -89,7 +89,7 @@ $error=false;//最初はエラーじゃない false を代入する
             </p>
             <p>性別：
                 <?php
-                if(isset($_POST["gender"]){
+                if(isset($_POST["gender"])){
                     $error=false;
                     echo "<p style='color: red;'>性別を選択してください";
                 }
@@ -103,6 +103,12 @@ $error=false;//最初はエラーじゃない false を代入する
                 if(empty($_POST["post_code"])){
                     $error=true;
                     echo "<p style='color: red;'>郵便番号を入力してください";
+                }
+                if(preg_match('/[0-9]/',$_POST['post_code'])){
+                    echo "<p style='color: red;'>半角数字のみで入力してください";
+                }
+                if(strlen($_POST['post_code'])>7){
+                    echo "<p style='color: red;'>7文字以内で入力してください";
                 }
                 else{
                     echo $_POST['post_code'];
