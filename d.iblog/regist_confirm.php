@@ -71,6 +71,9 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>メールアドレスを入力してください";
                 }
+                elseif(preg_match('/[^a-z0-9@-]/',$_POST['mail'])){
+                    echo "<p style-'color: red;'>半角英数字,一部記号のみで入力してください";
+                }
                 else{
                     echo $_POST['mail'];
                 }
@@ -82,6 +85,9 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>パスワードを入力してください";
                 }
+                elseif(preg_match('/^[0-9]{7}$/',$_POST['password'])){
+                    echo "<p style='color: red;'>半角英数字のみで入力してください";
+                }
                 else{
                     echo $_POST['password'];
                 }
@@ -89,13 +95,7 @@ $error=false;//最初はエラーじゃない false を代入する
             </p>
             <p>性別：
                 <?php
-                if(isset($_POST["gender"])){
-                    $error=false;
-                    echo "<p style='color: red;'>性別を選択してください";
-                }
-                else{
-                    echo $_POST['gender'];
-                }
+                echo $_POST['gender'];
                 ?>
             </p>
             <p>郵便番号：
@@ -104,10 +104,10 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>郵便番号を入力してください";
                 }
-                if(preg_match('/[0-9]/',$_POST['post_code'])){
+                elseif(preg_match('/^[0-9]{7}$/',$_POST['post_code'])){
                     echo "<p style='color: red;'>半角数字のみで入力してください";
                 }
-                if(strlen($_POST['post_code'])>7){
+                elseif(strlen($_POST['post_code'])>7){
                     echo "<p style='color: red;'>7文字以内で入力してください";
                 }
                 else{
@@ -150,13 +150,7 @@ $error=false;//最初はエラーじゃない false を代入する
             </p>
             <p>アカウント権限：
                 <?php
-                if(empty($_POST["authority"])){
-                    $error=true;
-                    echo "<p style='color: red;'>アカウント権限を選択してください";
-                }
-                else{
-                    echo $_POST['authority'];
-                }
+                echo $_POST['authority'];
                 ?>
             </p>
             
