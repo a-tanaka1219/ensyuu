@@ -60,6 +60,9 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>カナ（名）を入力してください";
                 }
+                elseif(preg_match('/^[ア-ヶ]+$/',$_POST['last_name_kana'])!=1){
+                    echo "<p style='color: red;'>カタカナのみで入力してください";
+                }
                 else{
                     echo $_POST['last_name_kana'];
                 }
@@ -71,8 +74,11 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>メールアドレスを入力してください";
                 }
-                elseif(preg_match('/[^a-z0-9@-]/',$_POST['mail'])){
-                    echo "<p style-'color: red;'>半角英数字,一部記号のみで入力してください";
+                elseif(preg_match('/[^a-z0-9@-]+$/',$_POST['mail'])!=1){
+                    echo "<p style='color: red;'>半角英数字,一部記号のみで入力してください";
+                }
+                elseif(strlen($_POST['mail'])>100){
+                    echo "<p style='color: red;'>100文字以内で入力してください";
                 }
                 else{
                     echo $_POST['mail'];
@@ -85,8 +91,11 @@ $error=false;//最初はエラーじゃない false を代入する
                     $error=true;
                     echo "<p style='color: red;'>パスワードを入力してください";
                 }
-                elseif(preg_match('/^[0-9]{7}$/',$_POST['password'])){
+                elseif(preg_match('/^[0-9a-zA-Z]+$/',$_POST['password'])!=1){
                     echo "<p style='color: red;'>半角英数字のみで入力してください";
+                }
+                elseif(strlen($_POST['password'])>10){
+                    echo "<p style='color: red;'>10文字以内で入力してください";
                 }
                 else{
                     echo $_POST['password'];
@@ -100,11 +109,14 @@ $error=false;//最初はエラーじゃない false を代入する
             </p>
             <p>郵便番号：
                 <?php
+                $match=preg_match('/^[0-9]+$/',$_POST['post_code']);
+                
                 if(empty($_POST["post_code"])){
                     $error=true;
                     echo "<p style='color: red;'>郵便番号を入力してください";
                 }
-                elseif(preg_match('/^[0-9]{7}$/',$_POST['post_code'])){
+                
+                elseif($match!=1){
                     echo "<p style='color: red;'>半角数字のみで入力してください";
                 }
                 elseif(strlen($_POST['post_code'])>7){
