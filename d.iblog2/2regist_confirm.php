@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ vg <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="utf-8">
@@ -76,7 +76,7 @@
             <input type="submit" class="botton1" value="修正">
         </form>
         
-        <form action="2regist_complete.php">
+        <form action="2regist_complete.php" method="post">
             <input type="submit" class="botton2" value="登録">
                 <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                 <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
