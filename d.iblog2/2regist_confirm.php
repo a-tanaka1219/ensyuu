@@ -72,8 +72,63 @@
             ?>
         </p>
         
-        <form action="2regist.php">
+        <form action="2regist.php" method="post">
             <input type="submit" class="botton1" value="修正">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['family_name'])){
+                                                echo $_POST['family_name'];
+                                            }
+                                        ?>" name="family_name">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['last_name'])){
+                                                echo $_POST['last_name'];
+                                            }
+                                        ?>" name="last_name">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['family_name_kana'])){
+                                                echo $_POST['family_name_kana'];
+                                            }
+                                        ?>" name="family_name_kana">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['last_name_kana'])){
+                                                echo $_POST['last_name_kana'];
+                                            }
+                                        ?>" name="last_name_kana">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['mail'])){
+                                                echo $_POST['mail'];
+                                            }
+                                        ?>" name="mail">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['gender'])){
+                                                echo $_POST['gender'];
+                                            }
+                                        ?>" name="gender">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['post_code'])){
+                                                echo $_POST['post_code'];
+                                            }
+                                        ?>" name="post_code">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['prefecture'])){
+                                                echo $_POST['prefecture'];
+                                            }
+                                        ?>" name="prefecture">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['address_1'])){
+                                                echo $_POST['address_1'];
+                                            }
+                                        ?>" name="address_1">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['address_2'])){
+                                                echo $_POST['address_2'];
+                                            }
+                                        ?>" name="address_2">
+            <input type="hidden" value="<?php
+                                            if(!empty($_POST['authority'])){
+                                                echo $_POST['authority'];
+                                            }
+                                        ?>" name="authority">
         </form>
         
         <form action="2regist_complete.php" method="post">
