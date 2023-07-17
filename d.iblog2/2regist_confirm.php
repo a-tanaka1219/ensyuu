@@ -100,9 +100,7 @@
                                             }
                                         ?>" name="mail">
             <input type="hidden" value="<?php
-                                            if(!empty($_POST['gender'])){
-                                                echo $_POST['gender'];
-                                            }
+                                            echo $_POST['gender'];
                                         ?>" name="gender">
             <input type="hidden" value="<?php
                                             if(!empty($_POST['post_code'])){
