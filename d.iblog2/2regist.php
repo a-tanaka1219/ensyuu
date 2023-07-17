@@ -1,3 +1,4 @@
+<?
 <!DOCTYPE html>
 <html lang="ja">
     <head>        
@@ -35,8 +36,18 @@
             </div>
             <div>
                 <label>性別</label>
-                <input type="radio" name="gender" value="0" class="gender">男性
-                <input type="radio" name="gender" value="1" class="gender">女性
+                <input type="radio" name="gender" value="0"
+                       <?php
+                       if(!isset($_POST['gender']) || $_POST['gender']=="0"){
+                           echo 'checked';
+                       }?>
+                       >男性
+                <input type="radio" name="gender" value="1"
+                       <?php
+                       if(isset($_POST['gender']) && $_POST['gender']=="1"){
+                           echo 'checked';
+                       }?>
+                       >女性
             </div>
             <div>
                 <label>郵便番号</label>
@@ -53,7 +64,7 @@
                     
                     for($i=0; $i<47; $i++){
                         if(isset($_POST['prefecture']) && $_POST['prefecture'] == $todohuken[$i]){
-                            echo "<option value='".$todohuken[$i]."'>".$todohuken[$i]."</option>";
+                            echo "<option selected value='".$todohuken[$i]."'>".$todohuken[$i]."</option>";
                         }else{
                             echo "<option value='".$todohuken[$i]."'>".$todohuken[$i]."</option>";
                         }
