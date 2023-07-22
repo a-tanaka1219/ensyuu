@@ -123,9 +123,7 @@
                                             }
                                         ?>" name="address_2">
             <input type="hidden" value="<?php
-                                            if(!empty($_POST['authority'])){
-                                                echo $_POST['authority'];
-                                            }
+                                        echo $_POST['authority'];
                                         ?>" name="authority">
         </form>
         

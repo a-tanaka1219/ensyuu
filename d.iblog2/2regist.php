@@ -14,23 +14,49 @@ var_dump($_POST);
         <form method="post" action="2regist_confirm.php">
             <div>
                 <label>名前（姓）</label>
-                <input type="text" size="35" name="family_name" class="Agroup">
+                <input type="text" size="35" name="family_name"
+                       value="<?php
+                              //入力保持
+                              if(!empty($_POST['family_name'])){
+                                  echo $_POST['family_name'];
+                                  }
+                              ?>">
             </div>
             <div>
                 <label>名前（名）</label>
-                <input type="text" size="35" name="last_name" class="Agroup">
+                <input type="text" size="35" name="last_name"
+                       value="<?php
+                              if(!empty($_POST['last_name'])){
+                                  echo $_POST['last_name'];
+                                  }
+                                ?>">
             </div>
             <div>
                 <label>カナ（姓）</label>
-                <input type="text" size="35" name="family_name_kana" class="Agroup">
+                <input type="text" size="35" name="family_name_kana"
+                       value="<?php
+                              if(!empty($_POST['family_name_kana'])){
+                                  echo $_POST['family_name_kana'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>カナ（名）</label>
-                <input type="text" size="35" name="last_name_kana" class="Agroup">
+                <input type="text" size="35" name="last_name_kana"
+                       value="<?php
+                              if(!empty($_POST['last_name_kana'])){
+                                  echo $_POST['last_name_kana'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>メールアドレス</label>
-                <input type="email" size="35" name="mail" class="Agroup">
+                <input type="email" size="35" name="mail"
+                       value="<?php
+                              if(!empty($_POST['mail'])){
+                                  echo $_POST['mail'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>パスワード</label>
@@ -53,7 +79,12 @@ var_dump($_POST);
             </div>
             <div>
                 <label>郵便番号</label>
-                <input type="text" size="35" name="post_code" class="Agroup"> 
+                <input type="text" size="35" name="post_code"
+                       value="<?php
+                              if(!empty($_POST['post_code'])){
+                                  echo $_POST['post_code'];
+                              }
+                              ?>"> 
             </div>
             <div>
                 <label>住所（都道府県）</label>
@@ -77,17 +108,37 @@ var_dump($_POST);
             </div>
             <div>
                 <label>住所（市町村）</label>
-                <input type="text" size="35" name="address_1" class="Agroup">
+                <input type="text" size="35" name="address_1"
+                       value="<?php
+                              if(!empty($_POST['address_1'])){
+                                  echo $_POST['address_1'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>住所（番地）</label>
-                <input type="text" size="35" name="address_2" class="Agroup">
+                <input type="text" size="35" name="address_2"
+                       value="<?php
+                              if(!empty($_POST['address_2'])){
+                                  echo $_POST['address_2'];
+                              }
+                              ?>">
             </div>
             <div>
                 <label>アカウント権限</label>
                 <select name="authority">
-                    <option value="0">一般</option>
-                    <option value="1">管理者</option>
+                    <option value="0"
+                            <?php
+                            if(!isset($_POST['authority']) || $_POST['authority'] == "0"){
+                                echo 'selected';
+                            }
+                            ?>>一般</option>
+                    <option value="1"
+                            <?php
+                            if (isset($_POST['authority']) && $_POST['authority'] == "1"){
+                                echo 'selected';
+                            }
+                            ?>>管理者</option>
                 </select>
             </div>
             <div>
