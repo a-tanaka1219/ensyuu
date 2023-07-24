@@ -143,6 +143,11 @@ var_dump($_POST);
             </div>
             <div>
                 <input type="submit" class="submit" value="確認する">
+                <input type="hidden" value="<?php
+                                            if(!isset($_POST['family_name'])){
+                                                echo "名前（姓）を入力してください";
+                                            }"
+                                            ?>
             </div>
         </form>
     </body>
