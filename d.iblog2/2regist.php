@@ -1,5 +1,16 @@
 <?php
 var_dump($_POST);
+$error="";
+if(isset($_POST['family_name']) && $_POST['family_name']==""){
+    $error= "名前（姓）を入力してください";
+    }
+var_dump($error);
+
+
+if(!empty($_POST) && empty($error)){
+   //入力がうまくいっている
+    var_dump("うまくいっている");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -11,7 +22,7 @@ var_dump($_POST);
     
     <body>
         <h1>登録フォーム</h1>
-        <form method="post" action="2regist_confirm.php">
+        <form method="post" action="2regist.php">
             <div>
                 <label>名前（姓）</label>
                 <input type="text" size="35" name="family_name"
@@ -21,6 +32,12 @@ var_dump($_POST);
                                   echo $_POST['family_name'];
                                   }
                               ?>">
+                <?php
+                //エラーの表示はここ
+                if(!empty($error)){
+                    echo $error;
+                }
+                ?>
             </div>
             <div>
                 <label>名前（名）</label>
@@ -134,7 +151,7 @@ var_dump($_POST);
                             }
                             ?>>一般</option>
                     <option value="1"
-                            <?php
+                                   ,mu   <?php
                             if (isset($_POST['authority']) && $_POST['authority'] == "1"){
                                 echo 'selected';
                             }
@@ -143,11 +160,8 @@ var_dump($_POST);
             </div>
             <div>
                 <input type="submit" class="submit" value="確認する">
-                <input type="hidden" value="<?php
-                                            if(!isset($_POST['family_name'])){
-                                                echo "名前（姓）を入力してください";
-                                            }"
-                                            ?>
+                
+                
             </div>
         </form>
     </body>
