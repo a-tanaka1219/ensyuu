@@ -1,14 +1,20 @@
 <?php
 var_dump($_POST);
+//$errorの文字列がから（初期化）
 $error="";
+//$_POST['family_name']がセットされていて、値がからの時
 if(isset($_POST['family_name']) && $_POST['family_name']==""){
-    $error= "名前（姓）を入力してください";
-    }
+    //$errorに文字列を代入する
+    $error = "名前（姓）を入力してください";
+    }else if(isset($_POST['family_name']) && strlen($_POST['family_name'] > 10)){
+    $error = "１０文字以内で入力してください";
+}
 var_dump($error);
 
 
+//$_POSTが空ではなく、$errorが空の時
 if(!empty($_POST) && empty($error)){
-   //入力がうまくいっている
+   //入力がうまくいっていることを表示
     var_dump("うまくいっている");
 }
 ?>
