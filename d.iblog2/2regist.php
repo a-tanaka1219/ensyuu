@@ -7,8 +7,11 @@ if(isset($_POST['family_name']) && $_POST['family_name']==""){
     //$errorに文字列を代入する
     $error = "名前（姓）を入力してください";
     }
-if(isset($_POST['family_name']) && strlen($_POST['family_name']) > 10){
+else if(isset($_POST['family_name']) && mb_strlen($_POST['family_name']) > 10){
     $error = "１０文字以内で入力してください";
+}
+else if(isset($_POST['family_name']) && !preg_match('/[ぁ-ん亜-熙]/',$_POST['family_name'])){
+    $error = "ひらがな、漢字のみで入力してください";
 }
 var_dump($error);
 
