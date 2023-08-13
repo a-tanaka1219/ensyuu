@@ -25,8 +25,8 @@ if(isset($_POST['family_name_kana']) && $_POST['family_name_kana']==""){
     $error3 = "カナ（姓）を入力してください";
 }else if(isset($_POST['family_name_kana']) && mb_strlen($_POST['family_name_kana']) > 10){
     $error3 = "１０文字以内で入力してください";
-}else if(isset($_POST['family_name_kana']) && preg_match('/[ァ-ヴ]/',$_POST['family_name_kana'])){
-    $error3 = "カタカナのみで入力してください";
+//}else if(isset($_POST['family_name_kana']) && preg_match('/[ァ-ヴ]/',$_POST['family_name_kana']) == 0){
+    //$error3 = "カタカナのみで入力してください";
 }
 
 $error4="";
@@ -55,6 +55,8 @@ if(isset($_POST['post_code']) && $_POST['post_code']==""){
     $error7 = "郵便番号を入力してください";
 }else if(isset($_POST['post_code']) && strlen($_POST['post_code']) > 7){
     $error7 = "７文字以内で入力してください";
+}else if(isset($_POST['post_code']) && preg_match('/[0-9]+$/',$_POST['post_code']) == 0){
+    $error7 = "数字のみで入力してください";
 }
 
 //var_dump($_POST['prefecture']);
