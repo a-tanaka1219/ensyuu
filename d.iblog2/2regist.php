@@ -9,8 +9,8 @@ if(isset($_POST['family_name']) && $_POST['family_name']==""){
     }
 else if(isset($_POST['family_name']) && mb_strlen($_POST['family_name']) > 10){
     $error1 = "１０文字以内で入力してください";
-//}else if(isset($_POST['family_name']) && !preg_match('/[ぁ-ん亜-熙]/',$_POST['family_name'])){
-    //$error = "ひらがな、漢字のみで入力してください";
+}else if(isset($_POST['family_name']) && preg_match('/[ぁ-ん^一-龠]/u',$_POST['family_name']) == 0){
+    $error1 = "ひらがな、漢字のみで入力してください";
 }
 
 $error2="";
@@ -18,15 +18,18 @@ if(isset($_POST['last_name']) && $_POST['last_name']==""){
     $error2 = "名前（名）を入力してください";
 }else if(isset($_POST['last_name']) && mb_strlen($_POST['last_name']) > 10){
     $error2 = "１０文字以内で入力してください";
+}else if(isset($_POST['last_name']) && preg_match('/[ぁ-ん^一-龠]/u',$_POST['last_name']) == 0){
+    $error2 = "ひらがな、漢字のみで入力してください";
 }
+
 
 $error3="";
 if(isset($_POST['family_name_kana']) && $_POST['family_name_kana']==""){
     $error3 = "カナ（姓）を入力してください";
 }else if(isset($_POST['family_name_kana']) && mb_strlen($_POST['family_name_kana']) > 10){
     $error3 = "１０文字以内で入力してください";
-//}else if(isset($_POST['family_name_kana']) && preg_match('/[ァ-ヴ]/',$_POST['family_name_kana']) == 0){
-    //$error3 = "カタカナのみで入力してください";
+}else if(isset($_POST['family_name_kana']) && preg_match('/[ァ-ヴ]/u',$_POST['family_name_kana']) == 0){
+    $error3 = "カタカナのみで入力してください";
 }
 
 $error4="";
@@ -34,6 +37,8 @@ if(isset($_POST['last_name_kana']) && $_POST['last_name_kana']==""){
     $error4 = "カナ（名）を入力してください";
 }else if(isset($_POST['last_name_kana']) && mb_strlen($_POST['last_name_kana']) > 10){
     $error4 = "１０文字以内で入力してください";
+}else if(isset($_POST['last_name_kana']) && preg_match('/[ァ-ヴ]/u',$_POST['last_name_kana']) == 0){
+    $error4 = "カタカナのみで入力してください";
 }
 
 $error5="";
@@ -41,6 +46,8 @@ if(isset($_POST['mail']) && $_POST['mail']==""){
     $error5 = "メールアドレスを入力してください";
 }else if(isset($_POST['mail']) && strlen($_POST['mail']) > 100){
     $error5 = "１００文字以内で入力してください";
+}else if(isset($_POST['mail']) && preg_match('/^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/',$_POST['mail']) == 0){
+    $error5 = "メールアドレスを正しく入力してください";
 }
 
 $error6="";
@@ -48,6 +55,8 @@ if(isset($_POST['password']) && $_POST['password']==""){
     $error6 = "パスワードを入力してください";
 }else if(isset($_POST['password']) && strlen($_POST['password']) > 10){
     $error6 = "１０文字以内で入力してください";
+}else if(isset($_POST['password']) && preg_match('/^[a-zA-Z0-9]+$/',$_POST['password']) == 0){
+    $error6 = "半角英数字のみで入力してください";
 }
 
 $error7="";
@@ -72,6 +81,8 @@ if(isset($_POST['address_1']) && $_POST['address_1']==""){
     $error9 = "住所（市町村）を入力してください";
 }else if(isset($_POST['address_1']) && mb_strlen($_POST['address_1']) > 10){
     $error9 = "１０文字以内で入力してください";
+}else if(isset($_POST['address_1']) && preg_match('/^[^a-zA-Z]+$/',$_POST['address_1']) == 0){
+    $error9 = "正しく入力してください";
 }
 
 $error10 = "";
@@ -79,6 +90,8 @@ if(isset($_POST['address_2']) && $_POST['address_2']==""){
     $error10 = "住所（番地）を入力してください";
 }else if(isset($_POST['address_2']) && mb_strlen($_POST['address_2']) > 100){
     $error = "１００文字以内で入力してください";
+}else if(isset($_POST['address_2']) && preg_match('/^[^a-zA-Z]+$/',$_POST['address_2']) == 0){
+    $error10 = "正しく入力してください";
 }
 
 
