@@ -13,6 +13,10 @@ else if(isset($_POST['family_name']) && mb_strlen($_POST['family_name']) > 10){
     $error1 = "ひらがな、漢字のみで入力してください";
 }
 
+if($error1 == ""){
+    echo "うまくいっている";
+}
+
 $error2="";
 if(isset($_POST['last_name']) && $_POST['last_name']==""){
     $error2 = "名前（名）を入力してください";
@@ -74,7 +78,7 @@ $error8="";
 if(isset($_POST['prefecture']) && $_POST['prefecture']==""){
     $error8 = "都道府県を選択してください";
 }
-var_dump($error8);
+//var_dump($error8);
     
 $error9 ="";
 if(isset($_POST['address_1']) && $_POST['address_1']==""){
@@ -97,12 +101,18 @@ if(isset($_POST['address_2']) && $_POST['address_2']==""){
 
 //var_dump($error1);
 //var_dump($error3);
-
+$error=array($error1,$error2,$error3,$error4,$error5,$error6,$error7,$error8,$error9,$error10);
 //$_POSTが空ではなく、$errorが空の時
-if(!empty($_POST) && empty($error)){
-   //入力がうまくいっていることを表示
-    var_dump("うまくいっている");
-}
+var_dump($error);
+
+//for($a=0; $a<10; $a++){
+    if(!empty($_POST) && $error == ""){
+       //入力がうまくいっていることを表示
+        var_dump("うまくいっている");
+    }else{
+        var_dump("間違っている");
+    }
+//}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
