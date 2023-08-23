@@ -132,7 +132,7 @@ if(!empty($_POST)){
     <head>        
         <meta charset="UTF-8">
         <title>登録フォーム</title>
-        <link rel="stylesheet" type="text/css" href="2regist1.css">
+        <link rel="stylesheet" type="text/css" href="2regist.css">
     </head>
     
     <body>
