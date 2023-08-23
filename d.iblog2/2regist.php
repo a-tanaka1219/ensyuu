@@ -105,14 +105,27 @@ $error=array($error1,$error2,$error3,$error4,$error5,$error6,$error7,$error8,$er
 //$_POSTが空ではなく、$errorが空の時
 var_dump($error);
 
-//for($a=0; $a<10; $a++){
-    if(!empty($_POST) && $error == ""){
-       //入力がうまくいっていることを表示
-        var_dump("うまくいっている");
-    }else{
-        var_dump("間違っている");
+if(!empty($_POST)){
+    $success=true;
+    for($a=0; $a<10; $a++){
+        if($error[$a] != ""){
+            $success=false;
+            break;
+        }
     }
-//}
+    if($success){
+        var_dump("うまくいっている");
+        //１ $_SESSIONを使う
+        //２ header('Location: 2regist_confirm.php',$_POST);
+        //３
+        //次のページにリダイレクトさせる
+        
+   // }if(count($_POST)>0){
+  header('Location: 2regist_confirm.php', false, 307);
+        exit;
+}
+}
+    
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -311,7 +324,7 @@ var_dump($error);
                             }
                             ?>>一般</option>
                     <option value="1"
-                                   ,mu   <?php
+                            <?php
                             if (isset($_POST['authority']) && $_POST['authority'] == "1"){
                                 echo 'selected';
                             }
@@ -320,8 +333,6 @@ var_dump($error);
             </div>
             <div>
                 <input type="submit" class="submit" value="確認する">
-                
-                
             </div>
         </form>
     </body>
