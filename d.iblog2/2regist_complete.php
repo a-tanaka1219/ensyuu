@@ -21,6 +21,9 @@ $pdo ->exec("insert into accountform(family_name,last_name,family_name_kana,last
         <h1>登録フォーム</h1>
         <div class="confirm">
             <p>ご登録ありがとうございました。</p>
+            <form action="23index.html">
+                <input type="submit" value="TOP">
+            </form>
         </div>
     </body>
 </html>
