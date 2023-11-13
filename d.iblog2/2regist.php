@@ -50,7 +50,7 @@ if(isset($_POST['mail']) && $_POST['mail']==""){
     $error5 = "メールアドレスを入力してください";
 }else if(isset($_POST['mail']) && strlen($_POST['mail']) > 100){
     $error5 = "１００文字以内で入力してください";
-}else if(isset($_POST['mail']) && preg_match('/^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/',$_POST['mail']) == 0){
+}else if(isset($_POST['mail']) && preg_match('/^[a-zA-Z0-9.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/',$_POST['mail']) == 0){
     $error5 = "メールアドレスを正しく入力してください";
 }
 
