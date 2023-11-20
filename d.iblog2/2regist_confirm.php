@@ -1,4 +1,6 @@
-
+<?php
+var_dump($_POST);
+?>
 
 
 <!DOCTYPE html>
@@ -40,10 +42,15 @@
             </p>
             <p>パスワード：
                 <?php
-                $password = $_POST['password'];
-                echo $password;
+                
+                //$password = $_POST['password'];
 
-                $password_after=password_hash($password,PASSWORD_DEFAULT);
+                //$password_after=password_hash($password,PASSWORD_DEFAULT);
+                //echo $password_after;
+                // $_POST['password'] で送られてきた文字数分 ● を表示する
+                // $_POST['password'] の文字数を知るには？
+                // 文字数分 ● を表示するには？繰り返し処理！？
+                echo $_POST['password'];
 
 
                 ?>
@@ -79,9 +86,10 @@
                 ?>
             </p>
             
-        
         <form action="2regist.php" method="post">
             <input type="submit" class="botton1" value="修正">
+            <input type="hidden" name="back" value="1">
+
             <input type="hidden" value="<?php
                                             if(!empty($_POST['family_name'])){
                                                 echo $_POST['family_name'];
@@ -142,7 +150,7 @@
                 <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
                 <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
                 <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
-                <input type="hidden" value="<?php echo $password_after; ?>" name="password">
+                <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
                 <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
                 <input type="hidden" value="<?php echo $_POST['post_code']; ?>" name="post_code">
                 <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">

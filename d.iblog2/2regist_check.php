@@ -12,18 +12,18 @@ else if(isset($_POST['family_name']) && mb_strlen($_POST['family_name']) > 10){
 }else if(isset($_POST['family_name']) && preg_match('/[ぁ-ん^一-龠]/u',$_POST['family_name']) == 0){
     $error1 = "ひらがな、漢字のみで入力してください";
 }
-//if (isset($_POST['family_name'])) {
-//    if ($_POST['family_name']=="") {
-//        //$errorに文字列を代入する
-//        $error1 = "名前（姓）を入力してください";
-//    } elseif (mb_strlen($_POST['family_name']) > 10) {
-//        $error1 = "１０文字以内で入力してください";
-//    } elseif (preg_match('/[ぁ-ん^一-龠]/u',$_POST['family_name']) == 0) {
-//        $error1 = "ひらがな、漢字のみで入力してください";
-//    }
-//} elseif (count($_POST) > 0) {
-//    $error1 = "名前（姓）を入力してください";
-//}
+if (isset($_POST['family_name'])) {
+    if ($_POST['family_name']=="") {
+        //$errorに文字列を代入する
+        $error1 = "名前（姓）を入力してください";
+    } elseif (mb_strlen($_POST['family_name']) > 10) {
+        $error1 = "１０文字以内で入力してください";
+    } elseif (preg_match('/[ぁ-ん^一-龠]/u',$_POST['family_name']) == 0) {
+        $error1 = "ひらがな、漢字のみで入力してください";
+    }
+} elseif (count($_POST) > 0) {
+    $error1 = "名前（姓）を入力してください";
+}
 
 if($error1 == ""){
     echo "うまくいっている";
@@ -116,8 +116,9 @@ if(isset($_POST['address_2']) && $_POST['address_2']==""){
 $error=array($error1,$error2,$error3,$error4,$error5,$error6,$error7,$error8,$error9,$error10);
 //$_POSTが空ではなく、$errorが空の時
 var_dump($error);
+exit;
 
-if(!empty($_POST) && !isset($_POST['back'])){
+if(!empty($_POST)){
     $success=true;
     for($a=0; $a<10; $a++){
         if($error[$a] != ""){
