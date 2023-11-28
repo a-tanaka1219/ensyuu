@@ -50,9 +50,12 @@ var_dump($_POST);
                 // $_POST['password'] で送られてきた文字数分 ● を表示する
                 // $_POST['password'] の文字数を知るには？
                 // 文字数分 ● を表示するには？繰り返し処理！？
-                echo $_POST['password'];
-
-
+                
+                $count = count(fgets($_POST['password']));
+                for ($i =0; $i < $count; $i++){
+                    echo "●";
+                }
+                
                 ?>
             </p>
             <p>性別：
